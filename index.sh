@@ -46,7 +46,7 @@ sudo_ldap_template="$(cat files/sudo-ldap.conf)"
 echo "$sudo_ldap_template" | mo > /etc/sudo-ldap.conf
 
 ## Set up SSHkey via LDAP
-sudo_ldap_template="$(cat files/ldap-ssh-key)"
+sudo_ldap_template="$(cat files/ldap-ssh-key.sh)"
 echo "$sudo_ldap_template" | mo > /usr/local/bin/ldap-ssh-key
 chmod +x /usr/local/bin/ldap-ssh-key
 
