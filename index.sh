@@ -52,3 +52,5 @@ chmod +x /usr/local/bin/ldap-ssh-key
 
 echo "AuthorizedKeysCommand /usr/local/bin/ldap-ssh-key" >> /etc/ssh/sshd_config
 echo "AuthorizedKeysCommandUser nobody" >> /etc/ssh/sshd_config
+
+service ssh restart
