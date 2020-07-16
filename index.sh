@@ -4,7 +4,7 @@ set -e
 
 source lib/mo
 
-export ldap_host="192.168.1.54"
+export ldap_host="192.168.1.55"
 export ldap_base_dn="dc=theta42,dc=com"
 
 export ldap_admin_dn="cn=admin,dc=theta42,dc=com"
