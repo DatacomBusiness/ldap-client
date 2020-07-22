@@ -29,7 +29,15 @@ echo "ldap-auth-config ldap-auth-config/binddn string $ldap_bind_dn" | debconf-s
 echo "ldap-auth-config ldap-auth-config/override boolean true" | debconf-set-selections
 
 DEBIAN_FRONTEND=noninteractive apt install -y libnss-ldap libpam-ldap ldap-utils nscd
-auth-client-config -t nss -p lac_ldap
+if which auth-client-config >/dev/null; then
+	auth-client-config -t nss -p lac_ldap
+
+else
+	sed -i '/passwd/ s/$/ ldap/' /etc/nsswitch.conf
+	sed -i '/group/ s/$/ ldap/' /etc/nsswitch.
+	sed -e s/use_authtok//g -i /etc/pam.d/common-password
+fi
+
 pam-auth-update --enable ldap
 pam-auth-update --enable mkhomedir
 echo "session required pam_mkhomedir.so skel=/etc/skel umask=077" >> /etc/pam.d/common-session
