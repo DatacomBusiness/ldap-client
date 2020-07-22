@@ -34,7 +34,7 @@ if which auth-client-config >/dev/null; then
 
 else
 	sed -i '/passwd/ s/$/ ldap/' /etc/nsswitch.conf
-	sed -i '/group/ s/$/ ldap/' /etc/nsswitch.
+	sed -i '/group/ s/$/ ldap/' /etc/nsswitch.conf
 	sed -e s/use_authtok//g -i /etc/pam.d/common-password
 fi
 
