@@ -94,7 +94,7 @@ PAM_LDAP_filter="pam_filter &(|(memberof=cn=host_access,ou=groups,dc=theta42,dc=
 
 if grep -qiE "^NAME=\"debian" /etc/os-release; then
 	echo "$PAM_LDAP_filter" >> /etc/pam_ldap.conf
-else
+fi
 echo "$PAM_LDAP_filter" >> /etc/ldap/ldap.conf
 echo "$PAM_LDAP_filter" >> /etc/ldap.conf
 
@@ -114,5 +114,3 @@ echo "AuthorizedKeysCommand /usr/local/bin/ldap-ssh-key" >> /etc/ssh/sshd_config
 echo "AuthorizedKeysCommandUser nobody" >> /etc/ssh/sshd_config
 
 service ssh restart
-
-exit 0
