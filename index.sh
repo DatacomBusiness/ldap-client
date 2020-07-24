@@ -100,6 +100,7 @@ echo "$PAM_LDAP_filter" >> /etc/ldap.conf
 
 
 ## Set up sudo-ldap
+export SUDO_FORCE_REMOVE=yes
 apt install -y sudo-ldap
 sudo_ldap_template="$(cat files/sudo-ldap.conf)"
 echo "$sudo_ldap_template" | mo > /etc/sudo-ldap.conf
