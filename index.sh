@@ -11,7 +11,7 @@ source lib/mo
 
 # Set some variables for the test of the file
 ## TODO! Dont hard code these values.
-export ldap_host="192.168.1.55"
+export ldap_host="10.2.0.55"
 export ldap_base_dn="dc=theta42,dc=com"
 
 export ldap_admin_dn="cn=admin,dc=theta42,dc=com"
