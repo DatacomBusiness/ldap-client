@@ -12,12 +12,12 @@ source lib/mo
 # Set some variables for the test of the file
 ## TODO! Dont hard code these values.
 export ldap_host="ldap.sfo2.do.datacominfra.net"
-export ldap_base_dn="dc=dataconinfra,dc=net"
+export ldap_base_dn="dc=datacominfra,dc=net"
 
-export ldap_admin_dn="cn=admin,dc=dataconinfra,dc=net"
+export ldap_admin_dn="cn=admin,dc=datacominfra,dc=net"
 export ldap_admin_password=$1
 
-export ldap_bind_dn="cn=ldapclient service,ou=people,dc=dataconinfra,dc=net"
+export ldap_bind_dn="cn=ldapclient service,ou=people,dc=datacominfra,dc=net"
 export ldap_bind_password=$2
 
 export current_host=`hostname`
@@ -90,7 +90,7 @@ systemctl enable nscd
 
 # Apply LDAP group filter for PAM LDAP login
 # Different distros/versions read the filter from different places.
-PAM_LDAP_filter="pam_filter &(|(memberof=cn=host_access,ou=groups,dc=dataconinfra,dc=net)(memberof=cn=host_`hostname`_access,ou=groups,dc=dataconinfra,dc=net))"
+PAM_LDAP_filter="pam_filter &(|(memberof=cn=host_access,ou=groups,dc=datacominfra,dc=net)(memberof=cn=host_`hostname`_access,ou=groups,dc=datacominfra,dc=net))"
 
 if grep -qiE "^NAME=\"debian" /etc/os-release; then
 	echo "$PAM_LDAP_filter" >> /etc/pam_ldap.conf
