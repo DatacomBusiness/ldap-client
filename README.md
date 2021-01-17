@@ -3,4 +3,4 @@
 ## Usage
 
 * CLone this repo to the server you wish to perform LDAP logins on.
-* Move into the root of the repo and execute ` ./install <ldap admin password> <ldap bind password>`
+* Move into the root of the repo and execute ` ./install.sh <ldap admin password> <ldap bind password>`
